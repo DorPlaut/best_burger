@@ -3,6 +3,7 @@ import './globals.css';
 import Background from './layout/Background';
 import Header from './layout/Header';
 import BackUpBtn from './layout/nav/BackUpBtn';
+import Footer from './layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
         </main>
+        <Footer />
         <BackUpBtn />
       </body>
     </html>
