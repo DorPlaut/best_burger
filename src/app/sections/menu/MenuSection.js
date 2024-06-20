@@ -133,7 +133,10 @@ const MenuSection = ({ data }) => {
         <button
           className="btn round-icon-btn"
           onClick={() => handleCaruselClick('left')}
-          style={{ opacity: menuOfset != 0 ? 1 : 0 }}
+          style={{
+            opacity: menuOfset != 0 ? 1 : 0,
+            pointerEvents: menuOfset != 0 ? 'all' : 'none',
+          }}
         >
           <FaAngleDoubleLeft />
         </button>
@@ -141,7 +144,10 @@ const MenuSection = ({ data }) => {
         <button
           className="btn round-icon-btn"
           onClick={() => handleCaruselClick('right')}
-          style={{ opacity: menuOfset <= maxOffset - 1 ? 1 : 0 }}
+          style={{
+            opacity: menuOfset <= maxOffset - 1 ? 1 : 0,
+            pointerEvents: menuOfset <= maxOffset - 1 ? 'all' : 'none',
+          }}
         >
           <FaAngleDoubleRight />
         </button>
