@@ -24,38 +24,46 @@ const MenuSection = ({ data }) => {
     'All',
     ...new Set(data.map((item) => item.item_category)),
   ];
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [hoverdCategory, setHoverdCategory] = useState('');
   // set category
   const filterItems = (category) => {
     if (category === 'All') {
+      setActiveCategory(category);
       setFilterdMenu(sortByCategory(data));
       return;
     }
     const filteredData = data.filter((item) => item.item_category === category);
+    setActiveCategory(category);
+    console.log(category);
     setFilterdMenu(sortByCategory(filteredData));
   };
 
   // handle carusel logic
   const [menuOfset, setMenuOfset] = useState(0);
   const [maxOffset, setMaxOffset] = useState(0);
+  const [isOverflowing, setIsOverflowing] = useState(0);
   const minOffset = 0;
   // figure out if theres is more menu to left/right
   const containerRef = useRef();
   const caruselRef = useRef();
   // carusel is bigger then container, lets figure out by how much
   const handleCarusel = () => {
-    setMenuOfset(0);
     const containerWidth = containerRef.current.offsetWidth;
     const caruselWidth = caruselRef.current.scrollWidth;
-    const isOverflowing = containerWidth < caruselWidth;
-    const caruselSize = (caruselWidth / containerWidth - 1) * 2 * 50;
-    console.log(caruselSize);
-    setMaxOffset(-caruselSize);
+    const caruselSize =
+      (caruselWidth / containerWidth - 1) * 2 * (isMobile ? 100 : 50);
+    setIsOverflowing(containerWidth < caruselWidth);
+    // console.log(caruselSize);
+    setMenuOfset(0);
+    setMaxOffset(caruselSize);
   };
 
   // handle moving the carusel
   const handleCaruselClick = (direction) => {
-    if (direction === 'right') setMenuOfset(menuOfset - 50);
-    if (direction === 'left') setMenuOfset(menuOfset + 50);
+    console.log(menuOfset, maxOffset);
+    if (direction === 'right') setMenuOfset(menuOfset + (isMobile ? 100 : 50));
+    if (direction === 'left') setMenuOfset(menuOfset - (isMobile ? 100 : 50));
   };
 
   useEffect(() => {
@@ -80,13 +88,29 @@ const MenuSection = ({ data }) => {
 
   return (
     <div className="section-content" id="menu">
-      <h2>Menu</h2>
+      <h2 className="section-title">Menu</h2>
       <div className="categories-btns">
         {categories.map((category, index) => (
           <button
             key={index}
             className="btn filter-btn"
             onClick={() => filterItems(category)}
+            onMouseEnter={() => setHoverdCategory(category)}
+            onMouseLeave={() => setHoverdCategory('')}
+            style={{
+              background:
+                category == activeCategory || category == hoverdCategory
+                  ? ' none'
+                  : 'var(--primary-color)',
+              color:
+                category == activeCategory || category == hoverdCategory
+                  ? 'var(--primary-color)'
+                  : 'var(--secondery-color)',
+              boxShadow:
+                category == activeCategory || category == hoverdCategory
+                  ? ' 0px 0px 0px 2px var(--primary-color) inset'
+                  : '0px 0px 0px 0px var(--primary-color) inset',
+            }}
           >
             {category}
           </button>
@@ -96,7 +120,7 @@ const MenuSection = ({ data }) => {
         <div
           className="items-container"
           ref={caruselRef}
-          style={{ transform: `translateX(${menuOfset}%)` }}
+          style={{ transform: `translateX(${-menuOfset}%)` }}
         >
           {filterdMenu.map((item) => (
             <div key={item.item_id} className="menu-item">
@@ -105,11 +129,11 @@ const MenuSection = ({ data }) => {
           ))}
         </div>
       </div>
-      <div className="carusel-btns" style={{ opacity: maxOffset == 0 ? 0 : 1 }}>
+      <div className="carusel-btns" style={{ opacity: isOverflowing ? 1 : 1 }}>
         <button
           className="btn round-icon-btn"
           onClick={() => handleCaruselClick('left')}
-          style={{ opacity: menuOfset <= maxOffset ? 1 : 0 }}
+          style={{ opacity: menuOfset != 0 ? 1 : 0 }}
         >
           <FaAngleDoubleLeft />
         </button>
@@ -117,7 +141,7 @@ const MenuSection = ({ data }) => {
         <button
           className="btn round-icon-btn"
           onClick={() => handleCaruselClick('right')}
-          style={{ opacity: menuOfset >= minOffset ? 1 : 0 }}
+          style={{ opacity: menuOfset <= maxOffset - 1 ? 1 : 0 }}
         >
           <FaAngleDoubleRight />
         </button>

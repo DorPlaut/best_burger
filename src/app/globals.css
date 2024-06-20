@@ -90,6 +90,7 @@ a {
   width: calc(100vw - 3rem);
   max-width: 1200px;
 }
+
 .inner {
   transition: 0.5s ease-in;
   position: relative;
@@ -103,6 +104,10 @@ a {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+}
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* images */
@@ -290,10 +295,24 @@ canvas {
 .carusel-btns {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: relative;
   transition: 0.2s;
 }
+
+/* filter buttons */
+.categories-btns {
+}
+.filter-btn {
+  font-size: 1rem;
+  background: var(--primary-color);
+  color: var(--secondery-color);
+  border-radius: var(--border-radius);
+  padding: 0.5rem;
+  margin: 0.5rem;
+  width: 8rem;
+}
+
 /* single item */
 
 .menu-item {
