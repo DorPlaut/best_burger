@@ -54,7 +54,6 @@ const MenuSection = ({ data }) => {
     const caruselSize =
       (caruselWidth / containerWidth - 1) * 2 * (isMobile ? 100 : 50);
     setIsOverflowing(containerWidth < caruselWidth);
-    // console.log(caruselSize);
     setMenuOfset(0);
     setMaxOffset(caruselSize);
   };
@@ -85,6 +84,29 @@ const MenuSection = ({ data }) => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // Handle carusel swipes for mobile
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    if (touchEndX.current < touchStartX.current) {
+      handleCaruselClick('right');
+    }
+
+    if (touchEndX.current > touchStartX.current) {
+      handleCaruselClick('left');
+    }
+  };
 
   return (
     <div className="section-content" id="menu">
@@ -120,6 +142,8 @@ const MenuSection = ({ data }) => {
         <div
           className="items-container"
           ref={caruselRef}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
           style={{ transform: `translateX(${-menuOfset}%)` }}
         >
           {filterdMenu.map((item) => (

@@ -32,7 +32,7 @@ export default async function Home() {
       <Section>
         <Locations />
       </Section>
-      {/* <Scene /> */}
+      <Scene />
     </div>
   );
 }
