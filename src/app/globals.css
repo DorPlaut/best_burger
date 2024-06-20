@@ -381,6 +381,11 @@ footer {
     margin-top: -1.5rem;
   }
 
+  .carusel-btns .btn {
+    scale: 0.9;
+    margin: -0.5rem;
+  }
+
   .menu-item {
     width: 100%;
   }
