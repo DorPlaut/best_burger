@@ -16,9 +16,11 @@ const MenuItem = ({ item }) => {
         />
       </div>
       <div className="item-info">
-        <h3>{item_name}</h3>
+        <div className="item-title">
+          <h3>{item_name} </h3>
+          <span>{item_price}$</span>
+        </div>
         <p>{item_description}</p>
-        <p>{item_price}</p>
       </div>
     </div>
   );
