@@ -18,7 +18,6 @@ export function Fries(props) {
 
     redMaterialRef.current.opacity = opacity;
     redMaterialRef.current.transparent = true;
-    console.log(yellowMaterialRef.current.opacity);
   }, [opacity]);
   //
   return (

@@ -1,0 +1,66 @@
+[
+  {
+    "item_id": 1,
+    "item_name": "Best Burger",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 12,
+    "item_category": "Humburgers",
+    "item_image": "https://images.pexels.com/photos/19247575/pexels-photo-19247575/free-photo-of-cheeseburger-with-red-onion-tomato-and-lettuce.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "item_id": 2,
+    "item_name": "Best Burger Meal",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 20,
+    "item_category": "Meals",
+    "item_image": "https://images.pexels.com/photos/19247569/pexels-photo-19247569/free-photo-of-burger-and-french-fries-served-in-a-restaurant.jpeg"
+  },
+  {
+    "item_id": 3,
+    "item_name": "Best Fries",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 15,
+    "item_category": "Sides",
+    "item_image": "https://images.pexels.com/photos/1583884/pexels-photo-1583884.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "item_id": 4,
+    "item_name": "Best Shake",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 12,
+    "item_category": "Deserts",
+    "item_image": "https://images.pexels.com/photos/3625372/pexels-photo-3625372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "item_id": 5,
+    "item_name": "Best Cold Drink",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 8,
+    "item_category": "Drinks",
+    "item_image": "https://images.pexels.com/photos/16826278/pexels-photo-16826278/free-photo-of-coca-cola-with-ice-in-glass.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "item_id": 6,
+    "item_name": "Best Onion Rings",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 15,
+    "item_category": "Sides",
+    "item_image": "https://images.pexels.com/photos/4181933/pexels-photo-4181933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "item_id": 7,
+    "item_name": "Best Bacon Burger",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 12,
+    "item_category": "Humburgers",
+    "item_image": "https://images.pexels.com/photos/19247565/pexels-photo-19247565/free-photo-of-burger-with-vegetables-served-in-a-restaurant.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "item_id": 8,
+    "item_name": "Best Bacon Burger Meal",
+    "item_description": "Best Bacon Burger Meal",
+    "item_price": 20,
+    "item_category": "Meals",
+    "item_image": "https://images.pexels.com/photos/19247579/pexels-photo-19247579/free-photo-of-cheeseburger-with-bacon-vegetables-and-mayonnaise-next-to-a-pile-of-french-fries-with-a-glass-of-ice-tea-in-the-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  }
+]

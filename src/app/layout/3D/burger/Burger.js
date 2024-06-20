@@ -8,7 +8,6 @@ import { useLayoutStore } from '@/store/layoutStore';
 
 export function Burger(props) {
   const { currentSection } = useLayoutStore((state) => state);
-  console.log(currentSection);
   const { nodes, materials } = useGLTF('/models/burger.glb');
 
   // Initial positions and rotations

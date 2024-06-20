@@ -92,8 +92,12 @@ a {
 }
 .inner {
   transition: 0.5s ease-in;
+  position: relative;
+  height: 100%;
 }
 .section-content {
+  position: relative;
+  height: 100%;
   padding: 2.5rem 0;
   display: flex;
   justify-content: flex-start;
@@ -106,6 +110,9 @@ a {
   position: relative;
   width: 100%;
   height: 100%;
+}
+.img-container img {
+  object-fit: cover;
 }
 
 /* LAYOUT - background */
@@ -258,6 +265,81 @@ canvas {
   height: 15rem;
 }
 
+/* MENU */
+.menu-items {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  overflow: hidden;
+}
+.items-container {
+  position: relative;
+  height: 100%;
+  /* width: ; */
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  flex-direction: column;
+  /* overflow: hidden; */
+  flex-wrap: wrap;
+  transition: 0.5s ease-out;
+  /* transform: translateX(-50%); */
+}
+/* carusel buttons */
+.carusel-btns {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: 0.2s;
+}
+/* single item */
+
+.menu-item {
+  /* width: calc(100vw - 5rem); */
+  position: relative;
+  width: 50%;
+  height: 33%;
+  padding: 0.5rem;
+
+  /* margin: 0.5rem; */
+}
+.menu-item-inner {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: var(--border-radius);
+}
+.item-info {
+  padding: 2rem;
+  width: 50%;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  color: white;
+}
+.menu-img {
+  position: absolute;
+  transition: 0.5s ease-out;
+  z-index: 1;
+}
+.derken-filter {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  transition: 0.5s ease-out;
+}
+.menu-item:hover .derken-filter {
+  transform: translateX(-50%);
+}
+.menu-item:hover .menu-img {
+  scale: 1.1;
+}
+
 /* FOOTER */
 footer {
   background: var(--secondery-color);
@@ -268,4 +350,12 @@ footer {
   justify-content: center;
   align-items: center;
   padding-bottom: 1rem;
+}
+
+/* media quareeys */
+
+@media screen and (max-width: 800px) {
+  .menu-item {
+    width: 100%;
+  }
 }
