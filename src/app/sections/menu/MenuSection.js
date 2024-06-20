@@ -100,7 +100,7 @@ const MenuSection = ({ data }) => {
             style={{
               background:
                 category == activeCategory || category == hoverdCategory
-                  ? ' none'
+                  ? 'var(--secondery-color)'
                   : 'var(--primary-color)',
               color:
                 category == activeCategory || category == hoverdCategory

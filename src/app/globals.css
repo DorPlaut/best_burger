@@ -108,6 +108,7 @@ a {
 .section-title {
   font-size: 2rem;
   margin-bottom: 1rem;
+  margin-top: -1rem;
 }
 
 /* images */
@@ -302,6 +303,7 @@ canvas {
 
 /* filter buttons */
 .categories-btns {
+  text-align: center;
 }
 .filter-btn {
   font-size: 1rem;
