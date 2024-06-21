@@ -369,6 +369,30 @@ canvas {
   scale: 1.1;
 }
 
+/* LOCATION */
+#locations {
+  color: var(--secondery-color);
+}
+.locations-maps {
+  display: flex;
+  width: 100%;
+  height: 100%;
+
+  /* background: blue; */
+}
+.location {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-bottom: 2rem;
+}
+.locations-maps iframe {
+  padding: 0rem 1rem;
+}
+.location-info {
+  padding: 0rem 1rem;
+}
+
 /* FOOTER */
 footer {
   background: var(--secondery-color);
@@ -412,5 +436,14 @@ footer {
   }
   .item-info p {
     font-size: 0.6rem;
+  }
+
+  .locations-maps {
+    flex-direction: column;
+  }
+
+  .location {
+    width: 100%;
+    height: 50%;
   }
 }

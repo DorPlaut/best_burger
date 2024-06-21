@@ -88,23 +88,34 @@ const MenuSection = ({ data }) => {
   // Handle carusel swipes for mobile
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
+  const minSwipeDistance = 50;
 
   const handleTouchStart = (e) => {
     touchStartX.current = e.changedTouches[0].screenX;
+    touchStartY.current = e.changedTouches[0].screenY;
   };
 
   const handleTouchEnd = (e) => {
     touchEndX.current = e.changedTouches[0].screenX;
+    touchEndY.current = e.changedTouches[0].screenY;
     handleSwipe();
   };
 
   const handleSwipe = () => {
-    if (touchEndX.current < touchStartX.current) {
-      handleCaruselClick('right');
-    }
+    const deltaX = touchEndX.current - touchStartX.current;
+    const deltaY = touchEndY.current - touchStartY.current;
 
-    if (touchEndX.current > touchStartX.current) {
-      handleCaruselClick('left');
+    if (
+      Math.abs(deltaX) > Math.abs(deltaY) &&
+      Math.abs(deltaX) > minSwipeDistance
+    ) {
+      if (deltaX > 0) {
+        handleCaruselClick('left');
+      } else {
+        handleCaruselClick('right');
+      }
     }
   };
 
