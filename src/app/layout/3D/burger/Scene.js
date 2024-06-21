@@ -3,7 +3,7 @@ import { OrbitControls } from '@react-three/drei';
 import React, { useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Burger } from './burger/Burger';
+import { Burger } from './Burger';
 import { Soda } from './Soda';
 import { angleToRadians } from '@/utils/angleToRadians';
 import { Fries } from './Fries';

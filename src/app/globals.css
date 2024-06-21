@@ -136,6 +136,8 @@ a {
 }
 .trantision-blob-white,
 .trantision-blob-red {
+  z-index: -1;
+
   position: absolute;
   top: -10rem;
   height: 10rem;
@@ -230,9 +232,6 @@ a {
 .scene {
   z-index: 0;
   pointer-events: none;
-  overflow: visible;
-}
-canvas {
   overflow: visible;
 }
 
@@ -398,12 +397,30 @@ canvas {
 footer {
   background: var(--secondery-color);
   position: relative;
-  bottom: 0;
+  /* bottom: 0; */
+
+  padding-bottom: 1rem;
+}
+.footer-inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 1rem;
+  z-index: 1;
+}
+
+.footer-scene {
+  position: absolute;
+  z-index: 0;
+  width: 100vw;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  height: 800%;
+  overflow: visible;
 }
 
 /* media quareeys */

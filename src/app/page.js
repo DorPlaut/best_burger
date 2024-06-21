@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
-import Scene from './layout/3D/Scene';
+import Scene from './layout/3D/burger/Scene';
 import Hero from './sections/Hero';
 import Section from './sections/Section';
 import Locations from './sections/Locations';
 import MenuSection from './sections/menu/MenuSection';
+import FooterScene from './layout/3D/bottles/FooterScene';
 
 const getData = async () => {
   // Get the absolute path to the JSON file
@@ -33,6 +34,7 @@ export default async function Home() {
         <Locations />
       </Section>
       <Scene />
+      {/* <FooterScene /> */}
     </div>
   );
 }
