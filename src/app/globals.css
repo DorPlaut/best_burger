@@ -372,6 +372,7 @@ canvas {
 /* LOCATION */
 #locations {
   color: var(--secondery-color);
+  text-align: center;
 }
 .locations-maps {
   display: flex;
@@ -387,10 +388,10 @@ canvas {
   margin-bottom: 2rem;
 }
 .locations-maps iframe {
-  padding: 0rem 1rem;
+  padding: 1rem 1rem 0rem 1rem;
 }
 .location-info {
-  padding: 0rem 1rem;
+  padding: 0.5rem 1rem;
 }
 
 /* FOOTER */
