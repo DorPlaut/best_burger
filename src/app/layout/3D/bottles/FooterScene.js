@@ -7,22 +7,24 @@ import * as THREE from 'three';
 import { SouceBottle } from './SouceBottle';
 import { useSpring, animated } from '@react-spring/three';
 import { angleToRadians } from '@/utils/angleToRadians';
+import { useLayoutStore } from '@/store/layoutStore';
 
 const FooterScene = () => {
+  const { isMobile } = useLayoutStore((state) => state);
   const startValues = {
     elementOpacity: 0,
-    meshPositionRight: [7.5, -0.5, -5],
-    meshRotationRight: [0, angleToRadians(10), 0],
-    meshPositionLeft: [-7.5, -0.5, -5],
-    meshRotationLeft: [0, angleToRadians(-10), 0],
+    meshPositionRight: [9, -0.5, -10],
+    meshRotationRight: [0, 0, angleToRadians(-40)],
+    meshPositionLeft: [-9, -0.5, -10],
+    meshRotationLeft: [0, 0, angleToRadians(40)],
   };
 
   const endValues = {
     elementOpacity: 1,
-    meshPositionRight: [5, -0.5, -5],
-    meshRotationRight: [0, 0, 0],
-    meshPositionLeft: [-5, -0.5, -5],
-    meshRotationLeft: [0, 0, 0],
+    meshPositionRight: [isMobile ? 5 : 8, -0.5, -10],
+    meshRotationRight: [0, 0, angleToRadians(-10)],
+    meshPositionLeft: [isMobile ? -5 : -8, -0.5, -10],
+    meshRotationLeft: [0, 0, angleToRadians(10)],
   };
 
   const [
@@ -44,24 +46,7 @@ const FooterScene = () => {
     config: { mass: 1, tension: 280, friction: 120 },
   }));
 
-  // trigger the animation after scrolling full window height
-
-  // const canvasRef = useRef();
-  // const handleScroll = () => {
-  //   if (canvasRef.current) {
-  //     console.log(canvasRef);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
-  // useEffect(() => {
-  //   handleScroll();
-  // }, []);
+  // trigger the animation
 
   const canvasRef = useRef();
   const [isVisible, setIsVisible] = useState(false);
@@ -71,7 +56,7 @@ const FooterScene = () => {
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.4 } // adjust as needed
+      { threshold: 0.6 } // adjust as needed
     );
 
     if (canvasRef.current) {
@@ -109,7 +94,21 @@ const FooterScene = () => {
       <directionalLight position={[10, 5, 10]} intensity={1} />
       <ambientLight intensity={1} />
       {/* bottles */}
-      <animated.mesh position={meshPositionRight} rotation={meshRotationRight}>
+
+      <Bottle
+        color={'yellow'}
+        opacity={elementOpacity}
+        position={meshPositionRight}
+        rotation={meshRotationRight}
+      />
+      <Bottle
+        color={'#c00000'}
+        opacity={elementOpacity}
+        position={meshPositionLeft}
+        rotation={meshRotationLeft}
+      />
+
+      {/* <animated.mesh position={meshPositionRight} rotation={meshRotationRight}>
         <mesh position={[1, 0, -2]}>
           <SouceBottle color={'#c00000'} scale={0.7} opacity={elementOpacity} />
         </mesh>
@@ -124,10 +123,25 @@ const FooterScene = () => {
         <mesh position={[0, 0, -5]}>
           <SouceBottle color={'yellow'} scale={0.7} opacity={elementOpacity} />
         </mesh>
-      </animated.mesh>
+      </animated.mesh> */}
+
       {/* <OrbitControls makeDefault /> */}
     </Canvas>
   );
 };
 
 export default FooterScene;
+
+const Bottle = ({ color, opacity, position, rotation }) => {
+  const ref = useRef();
+  useFrame(() => {
+    ref.current.rotation.y += 0.02;
+  });
+  return (
+    <animated.mesh position={position} rotation={rotation} ref={ref}>
+      <mesh position={[0, -0.5, 0]}>
+        <SouceBottle color={color} scale={0.7} opacity={opacity} />
+      </mesh>
+    </animated.mesh>
+  );
+};
