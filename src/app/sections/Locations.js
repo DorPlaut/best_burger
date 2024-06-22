@@ -8,7 +8,7 @@ const Locations = () => {
   return (
     <div className="section-content" id="locations">
       <h2 className="section-title">Locations</h2>
-      <h3>Come visit us in any of out locations</h3>
+      <h3>Come visit us in any of our locations</h3>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus,
         fugit illo ratione nihil voluptates.
@@ -45,6 +45,7 @@ const Locations = () => {
               border: 0,
               width: '100%',
               height: '100%',
+              borderRadius: '10px',
             }}
             allowFullScreen=""
             loading="lazy"
