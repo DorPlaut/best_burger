@@ -84,7 +84,7 @@ a {
 }
 .section {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   /* padding: 2.5rem 0; */
   height: 100vh;
   width: calc(100vw - 3rem);
@@ -127,7 +127,7 @@ a {
   width: 100%;
   position: absolute;
   top: 0;
-  z-index: -1;
+  z-index: 0;
 }
 .background-blob-white,
 .background-blob-red {
@@ -137,6 +137,7 @@ a {
 .trantision-blob-white,
 .trantision-blob-red {
   position: absolute;
+
   top: -10rem;
   height: 10rem;
   border-radius: 50% 50% 0 0;
@@ -227,7 +228,8 @@ a {
   height: 6rem;
 }
 
-.scene {
+.scene,
+.footer-scene {
   z-index: 0;
   pointer-events: none;
   overflow: visible;
@@ -302,7 +304,8 @@ a {
 .categories-btns {
   text-align: center;
 }
-.filter-btn {
+.filter-btn,
+.newsletter-btn {
   font-size: 1rem;
   background: var(--primary-color);
   color: var(--secondery-color);
@@ -334,7 +337,7 @@ a {
   padding: 2rem;
   width: 50%;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 0;
   color: white;
 }
@@ -349,14 +352,14 @@ a {
 .menu-img {
   position: absolute;
   transition: 0.5s ease-out;
-  z-index: 2;
+  z-index: 1;
 }
 .derken-filter {
   position: absolute;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  z-index: 3;
+  z-index: 2;
   transition: 0.5s ease-out;
 }
 .menu-item:hover .derken-filter {
@@ -374,7 +377,7 @@ a {
 .locations-maps {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 60%;
 
   /* background: blue; */
 }
@@ -389,6 +392,69 @@ a {
 }
 .location-info {
   padding: 0.5rem 1rem;
+}
+.newsletter {
+  height: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newsletter-inner {
+  background: var(--secondery-color);
+  color: black;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.newsletter-form {
+  margin-top: 1rem;
+
+  width: 100%;
+}
+.form-input-container {
+  background: var(--primary-color);
+  padding: 0 1rem;
+  border-radius: var(--border-radius);
+  color: var(--secondery-color-dark);
+  transition: 0.2s;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.form-input {
+  background: none;
+  transition: 0.2s;
+  font-size: 1rem;
+  padding: 1rem 0rem 1rem 0.5rem;
+  outline: none;
+  border: none;
+  resize: none;
+  color: var(--secondery-color-dark);
+  width: 100%;
+}
+
+.form-input:focus {
+  color: var(--secondery-color);
+}
+.form-input-container:focus-within {
+  outline: none;
+  background: var(--primary-color-dark);
+}
+.newsletter-btn {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  width: 50%;
+}
+.newsletter-btn:hover {
+  background: var(--secondery-color);
+  color: var(--primary-color);
+  box-shadow: 0px 0px 0px 2px var(--primary-color) inset;
 }
 
 /* FOOTER */
@@ -405,12 +471,12 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 1;
 }
 
 .footer-scene {
   position: absolute;
-  z-index: 1;
+  z-index: 1 !important ;
   width: 100vw;
   bottom: 0;
   left: 0;
@@ -454,12 +520,11 @@ footer {
     font-size: 0.6rem;
   }
 
-  .locations-maps {
+  /* .locations-maps {
     flex-direction: column;
-  }
+  } */
 
   .location {
-    width: 100%;
     height: 50%;
   }
 }

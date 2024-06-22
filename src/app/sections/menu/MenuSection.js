@@ -35,7 +35,6 @@ const MenuSection = ({ data }) => {
     }
     const filteredData = data.filter((item) => item.item_category === category);
     setActiveCategory(category);
-    console.log(category);
     setFilterdMenu(sortByCategory(filteredData));
   };
 
@@ -51,8 +50,7 @@ const MenuSection = ({ data }) => {
   const handleCarusel = () => {
     const containerWidth = containerRef.current.offsetWidth;
     const caruselWidth = caruselRef.current.scrollWidth;
-    const caruselSize =
-      (caruselWidth / containerWidth - 1) * 2 * (isMobile ? 100 : 50);
+    const caruselSize = (caruselWidth / containerWidth - 1) * 100;
     setIsOverflowing(containerWidth < caruselWidth);
     setMenuOfset(0);
     setMaxOffset(caruselSize);
@@ -60,9 +58,10 @@ const MenuSection = ({ data }) => {
 
   // handle moving the carusel
   const handleCaruselClick = (direction) => {
-    console.log(menuOfset, maxOffset);
-    if (direction === 'right') setMenuOfset(menuOfset + (isMobile ? 100 : 50));
-    if (direction === 'left') setMenuOfset(menuOfset - (isMobile ? 100 : 50));
+    if (direction === 'right' && menuOfset <= maxOffset - 1)
+      setMenuOfset(menuOfset + (isMobile ? 100 : 50));
+    if (direction === 'left' && menuOfset != 0)
+      setMenuOfset(menuOfset - (isMobile ? 100 : 50));
   };
 
   useEffect(() => {
@@ -111,9 +110,9 @@ const MenuSection = ({ data }) => {
       Math.abs(deltaX) > Math.abs(deltaY) &&
       Math.abs(deltaX) > minSwipeDistance
     ) {
-      if (deltaX > 0 && menuOfset != 0) {
+      if (deltaX > 0) {
         handleCaruselClick('left');
-      } else if (menuOfset <= maxOffset) {
+      } else {
         handleCaruselClick('right');
       }
     }
@@ -180,8 +179,8 @@ const MenuSection = ({ data }) => {
           className="btn round-icon-btn"
           onClick={() => handleCaruselClick('right')}
           style={{
-            opacity: menuOfset <= maxOffset - 1 ? 1 : 0,
-            pointerEvents: menuOfset <= maxOffset - 1 ? 'all' : 'none',
+            opacity: menuOfset < maxOffset - 1 ? 1 : 0,
+            pointerEvents: menuOfset < maxOffset - 1 ? 'all' : 'none',
           }}
         >
           <FaAngleDoubleRight />

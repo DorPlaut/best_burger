@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { useLayoutStore } from '@/store/layoutStore';
+import NewsLetter from './NewsLetter';
 
 const Locations = () => {
   const isMobile = useLayoutStore((state) => state.isMobile);
@@ -21,7 +22,7 @@ const Locations = () => {
             style={{
               border: 0,
               width: '100%',
-              height: isMobile ? '100%' : '25rem',
+              height: '100%',
             }}
             allowFullScreen=""
             loading="lazy"
@@ -43,7 +44,7 @@ const Locations = () => {
             style={{
               border: 0,
               width: '100%',
-              height: isMobile ? '100%' : '25rem',
+              height: '100%',
             }}
             allowFullScreen=""
             loading="lazy"
@@ -58,6 +59,7 @@ const Locations = () => {
           </div>
         </div>
       </div>
+      <NewsLetter />
     </div>
   );
 };
