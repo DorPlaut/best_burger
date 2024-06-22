@@ -441,7 +441,7 @@ a {
   width: 100%;
 }
 .form-input-container {
-  background: var(--primary-color);
+  background: var(--primary-color-dark);
   padding: 0 1rem;
   border-radius: var(--border-radius);
   color: var(--secondery-color-dark);
@@ -468,7 +468,7 @@ a {
 }
 .form-input-container:focus-within {
   outline: none;
-  background: var(--primary-color-dark);
+  background: var(--primary-color);
 }
 .newsletter-btn {
   padding: 0.5rem;
@@ -510,6 +510,14 @@ footer {
   margin-right: auto;
   height: 400%;
   overflow: visible;
+}
+
+footer a {
+  font-weight: bold;
+  transition: 0.2s;
+}
+footer a:hover {
+  color: var(--primary-color-mid);
 }
 
 /* media quareeys */

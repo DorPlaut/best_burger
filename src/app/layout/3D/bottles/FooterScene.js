@@ -107,25 +107,6 @@ const FooterScene = () => {
         position={meshPositionLeft}
         rotation={meshRotationLeft}
       />
-
-      {/* <animated.mesh position={meshPositionRight} rotation={meshRotationRight}>
-        <mesh position={[1, 0, -2]}>
-          <SouceBottle color={'#c00000'} scale={0.7} opacity={elementOpacity} />
-        </mesh>
-        <mesh position={[0, 0, -5]}>
-          <SouceBottle color={'yellow'} scale={0.7} opacity={elementOpacity} />
-        </mesh>
-      </animated.mesh>
-      <animated.mesh position={meshPositionLeft} rotation={meshRotationLeft}>
-        <mesh position={[-1, 0, -2]}>
-          <SouceBottle color={'#c00000'} scale={0.7} opacity={elementOpacity} />
-        </mesh>
-        <mesh position={[0, 0, -5]}>
-          <SouceBottle color={'yellow'} scale={0.7} opacity={elementOpacity} />
-        </mesh>
-      </animated.mesh> */}
-
-      {/* <OrbitControls makeDefault /> */}
     </Canvas>
   );
 };

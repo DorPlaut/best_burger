@@ -26,10 +26,12 @@ const Footer = () => {
           </div>
         </div>
         <span>All rights reserved for Dor Plaut </span>
-        <h4>Need a website? Contact me now!</h4>
+        <a href="https://dorplaut.com/contact" target="_blank">
+          Need a website? Contact me now!
+        </a>
         <span>
           Build by{' '}
-          <a href="dorplaut.com" target="_blank">
+          <a href="https://dorplaut.com" target="_blank">
             {' '}
             Dor Plaut{' '}
           </a>
