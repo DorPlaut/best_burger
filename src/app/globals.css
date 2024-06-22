@@ -399,10 +399,10 @@ a {
   width: 50%;
   padding: 1rem 1rem 0rem 1rem;
   transition: 0.3s;
+  border-radius: var(--border-radius);
 }
 .location:hover {
   background: rgba(0, 0, 0, 0.7);
-  border-radius: var(--border-radius);
 }
 .locations-maps {
   margin: 1rem 0;
