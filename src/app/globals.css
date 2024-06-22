@@ -40,6 +40,12 @@ a {
   text-decoration: none;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* buttons */
 .btn {
   border: none;
@@ -267,6 +273,13 @@ a {
 .logo {
   width: calc(100vw - 5rem);
   height: 15rem;
+}
+
+.model-sticker {
+  background: var(--primary-color-mid);
+  border: 5px solid var(--primary-color-mid);
+  transition: 0.3s;
+  border-radius: var(--border-radius);
 }
 
 /* MENU */

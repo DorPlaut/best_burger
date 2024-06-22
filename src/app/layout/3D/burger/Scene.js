@@ -1,6 +1,6 @@
 'use client';
 import { OrbitControls } from '@react-three/drei';
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 import { Burger } from './Burger';
@@ -10,6 +10,7 @@ import { Fries } from './Fries';
 import { useSpring, animated } from '@react-spring/three';
 
 const Scene = () => {
+  const [htmlOpacity, setHtmlOpacity] = useState(0);
   const startValues = {
     elementOpacity: 0,
     sodaPosition: [4, -1, -3],
@@ -57,8 +58,13 @@ const Scene = () => {
 
   // trigger the animation after scrolling full window height
   const handleScroll = () => {
-    if (window.scrollY >= window.innerHeight - 100) api.start(endValues);
-    else api.start(startValues);
+    if (window.scrollY >= window.innerHeight - 100) {
+      setHtmlOpacity(1);
+      api.start(endValues);
+    } else {
+      setHtmlOpacity(0);
+      api.start(startValues);
+    }
 
     if (window.scrollY >= window.innerHeight)
       setCanvasStyle({
@@ -69,8 +75,6 @@ const Scene = () => {
       setCanvasStyle({
         position: 'fixed',
         bottom: '0',
-        // width: '100%',
-        // height: '100%',
       });
   };
 
@@ -102,7 +106,7 @@ const Scene = () => {
       </animated.mesh>
       {/* soda */}
       <animated.mesh position={sodaPosition} scale={3.5} rotation={[0, 0, 0]}>
-        <Soda opacity={elementOpacity} />
+        <Soda opacity={elementOpacity} htmlOpacity={htmlOpacity} />
       </animated.mesh>
       {/* fries */}
       <animated.mesh
@@ -110,7 +114,7 @@ const Scene = () => {
         scale={3}
         rotation={[0, angleToRadians(30), 0]}
       >
-        <Fries opacity={elementOpacity} />
+        <Fries opacity={elementOpacity} htmlOpacity={htmlOpacity} />
       </animated.mesh>
       {/* <OrbitControls /> */}
     </Canvas>

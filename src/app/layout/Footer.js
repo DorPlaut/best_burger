@@ -25,9 +25,15 @@ const Footer = () => {
             />
           </div>
         </div>
-        <span>All rights reservde for Best Burger </span>
+        <span>All rights reserved for Dor Plaut </span>
         <h4>Need a website? Contact me now!</h4>
-        <span>Build by Dor Plaut</span>
+        <span>
+          Build by{' '}
+          <a href="dorplaut.com" target="_blank">
+            {' '}
+            Dor Plaut{' '}
+          </a>
+        </span>
       </div>
     </footer>
   );
