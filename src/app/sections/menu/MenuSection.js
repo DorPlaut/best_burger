@@ -111,9 +111,9 @@ const MenuSection = ({ data }) => {
       Math.abs(deltaX) > Math.abs(deltaY) &&
       Math.abs(deltaX) > minSwipeDistance
     ) {
-      if (deltaX > 0) {
+      if (deltaX > 0 && menuOfset != 0) {
         handleCaruselClick('left');
-      } else {
+      } else if (menuOfset <= maxOffset) {
         handleCaruselClick('right');
       }
     }

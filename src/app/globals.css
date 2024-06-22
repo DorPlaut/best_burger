@@ -26,12 +26,12 @@ html,
 body {
   max-width: 100vw;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--secondery-color);
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
 /* general css - styles that go's all around the app */
 
@@ -396,10 +396,10 @@ footer {
   background: var(--secondery-color);
   position: relative;
   /* bottom: 0; */
-
   padding-bottom: 1rem;
 }
 .footer-inner {
+  transform: translateY(-1rem);
   position: relative;
   display: flex;
   flex-direction: column;
